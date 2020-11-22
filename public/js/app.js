@@ -6,6 +6,8 @@ const weatherForm = document.querySelector("form")
 const search = document.querySelector("input")
 const msgOne = document.querySelector("#msg1")
 const msgTwo = document.querySelector("#msg2")
+const img = document.getElementById("image_place");
+            
 
 msgTwo.textContent = "From Client-Side JavaScript"
 
@@ -21,8 +23,9 @@ weatherForm.addEventListener("submit", (e)=>{
             msgOne.textContent = data.error
         }
         else{
-            msgOne.textContent = data.location
-            msgTwo.textContent = data.forecast
+            msgOne.textContent = "Location : " + data.location
+            msgTwo.textContent = "Forecast : " + data.forecast
+            img.src = data.weather_icon
         }
     })
 })

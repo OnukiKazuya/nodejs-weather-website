@@ -36,13 +36,14 @@ app.get("/weather", (req, res)=>{
                 return res.send({error})
             }
             else{
-                forecast(data, (error, fc_data) => {
+                forecast(data, (error, fc_data, weather_icon) => {
                     if (error){
                         return res.send({error})
                     }
                     return res.send({
                         forecast : fc_data,
                         location : data.location,
+                        weather_icon
                     })
                 })
             }    
